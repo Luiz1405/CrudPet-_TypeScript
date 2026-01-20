@@ -51,7 +51,7 @@
 - Outras aplicações do generics
 - Criando função genérica
 
-# Diagrama do Banco de Dados Utilizado:
+### Diagrama do Banco de Dados Utilizado:
 
 <img width="761" height="557" alt="image" src="https://github.com/user-attachments/assets/a3b49502-c1f3-466c-a3f1-e998997fd895" />
 
