@@ -2,7 +2,7 @@
 
 ## Pontos desenvolvidos durante o curso:
 
-# Aula 1:
+### Aula 1:
 - O compilador TSC
 - Para saber mais: JavaScript x TypeScript - Entenda suas diferenças
 - Evitando erros com TypeScript rigoroso
@@ -10,7 +10,7 @@
 - Entendendo a inferência de tipos
 - Corrigindo erros de tipagem no TypeScript
 
-# Aula 2:
+### Aula 2:
 - Criando o TipoPetEnum
 - tipos nativos do TypeScript
 - Tempo de desenvolvimento X Tempo de execução
@@ -19,7 +19,7 @@
 - Validando a espécie do Pet com Enum
 - Melhorias no CRUD do Pet
 
-# Aula 3:
+### Aula 3:
 - Criando um banco de dados com TypeORM
 - Configurando o TypeORM
 - Criando uma entidade com decorators
@@ -31,7 +31,7 @@
 - Trabalhando com o operador union em funções assíncronas
 - Finalizando o CRUD de Pet
 
-# Aula 4:
+### Aula 4:
 - Inicializando um campo fora do construtor
 - Tipos utilitários do TypeScript vs. Campos opcionais
 - Tornando campos opcionais em TypeORM e TypeScript
@@ -43,7 +43,7 @@
 - Adotando um Pet (1:N)
 - Relacionando Pet e Adotante
 
-# Aula 5:
+### Aula 5:
 - Operador "in" na validação
 - Entendendo o operador “in”
 - Buscando Pet pelo porte
