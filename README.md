@@ -4,15 +4,15 @@
 
 ### Aula 1:
 - O compilador TSC
-- Para saber mais: JavaScript x TypeScript - Entenda suas diferenças
+- JavaScript x TypeScript - Entenda suas diferenças
 - Evitando erros com TypeScript rigoroso
-- Para saber mais: principais regras rigorosas do TypeScript
+- Principais regras rigorosas do TypeScript
 - Entendendo a inferência de tipos
 - Corrigindo erros de tipagem no TypeScript
 
 ### Aula 2:
 - Criando o TipoPetEnum
-- tipos nativos do TypeScript
+- Tipos nativos do TypeScript
 - Tempo de desenvolvimento X Tempo de execução
 - Aplicando o TipoPet no CRUD
 - Modificando o Pet com Enum
@@ -23,8 +23,8 @@
 - Criando um banco de dados com TypeORM
 - Configurando o TypeORM
 - Criando uma entidade com decorators
-- explorando os decorators
-- entendendo a arquitetura de repositórios
+- Explorando os decorators
+- Entendendo a arquitetura de repositórios
 - Lidando com repositórios
 - União de tipos no retorno da função ListaPets
 - Corrigindo erro de contexto das rotas
