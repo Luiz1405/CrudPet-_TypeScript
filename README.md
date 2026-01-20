@@ -1,6 +1,6 @@
-## Typescript: construção de uma API com tipagem segura
+# Typescript: construção de uma API com tipagem segura
 
-# Pontos desenvolvidos durante o curso:
+## Pontos desenvolvidos durante o curso:
 
 # Aula 1:
 - O compilador TSC
