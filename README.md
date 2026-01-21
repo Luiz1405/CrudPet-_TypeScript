@@ -1,4 +1,4 @@
-# Typescript: construção de uma API com tipagem segura
+# Typescript: construção de uma API com tipagem segura e desenvolvendo validações e tratando erros
 
 ## Pontos desenvolvidos durante o curso:
 
@@ -50,12 +50,56 @@
 - Buscando Pets por qualquer campo
 - Outras aplicações do generics
 - Criando função genérica
+- 
+### Aula 6:
+- Criando DTOs com Omit e Pick no AdotanteController
+- Unknown x Any - Quando usar?
+- Adicionando tipos na resposta
+- Protegendo dados com DTOs no AdotanteController
+- Adicionando tipos na resposta
+- Outras operações com tipos
+- Criando DTOs com Omit e Pick no PetController
+
+### Aula 7:
+- Criando um validador de Adotante
+- Required vs defined na biblioteca Yup
+- Validando dados da criaAdotante
+- Retornando todos os erros de uma vez
+- Aprimorando a validação com Yup
+- Criando middleware de validação da requisição
+- Validando um endereço
+- Sobrecargas de funções
+
+### Aula 8:
+- Validação de números de celular
+- Regex - Quando e como usar?
+- Traduzindo textos de retorno
+- Garantindo senha válida
+- Criptografando senhas no Adopet
+- Garantindo uma senha segura
+- Validando os pets
+
+### Aula 9:
+- Customizando erros
+- Aplicando ManipulaErros
+- Tratando erros no Adopet
+- Validação de campos únicos
+- Refatorando a API
+- Criando um middleware com Express
+- Adotante com campo único
+
+
+### Aula 10:
+- Entendendo a proposta de implementar a entidade
+- Entidade Abrigo e Relacionamentos
+- Criando entidade a partir do diagrama
+- CRUD do Abrigo
+- Validações do Abrigo
+- Módulos .d.ts e Namespaces
 
 ### Diagrama do Banco de Dados Utilizado:
 
-<img width="761" height="557" alt="image" src="https://github.com/user-attachments/assets/a3b49502-c1f3-466c-a3f1-e998997fd895" />
-
-
+<img width="953" height="752" alt="Screenshot from 2026-01-20 11-01-26" src="https://github.com/user-attachments/assets/5be916f6-2ac1-4c50-a11e-03d0e98fb98a" />
 
 
 
