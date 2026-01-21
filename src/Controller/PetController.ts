@@ -30,7 +30,7 @@ export default class PetController {
                 id: pet.id,
                 nome:pet.nome,
                 especie:pet.especie,
-                porte:pet.porte
+                porte:pet.porte!=null?pet.porte:undefined
             }
         })
 
@@ -39,43 +39,27 @@ export default class PetController {
 
     async atualizaPet(req:Request<TipoRequestParamsBodyPet, {},TipoRequestBodyPet >, res:Response<TipoResponseBodyPet>) {
         const { id } = req.params;
-        const { success, message } = await this.repository.atualizarPet(
-            Number(id),
-            req.body as PetEntity
-        );
-
-        if(!success) {
-            return res.status(404).json({ error: message });
-        }
+        await this.repository.atualizarPet(Number(id), req.body as PetEntity)
 
         return res.sendStatus(204);
     }
 
     async deletaPet(req:Request<TipoRequestParamsBodyPet, {},TipoRequestBodyPet >, res:Response<TipoResponseBodyPet>) {
         const { id } = req.params;
-        const { success, message} = await this.repository.atualizarPet(
+        await this.repository.atualizarPet(
             Number(id),
             req.body as PetEntity
         );
-
-        if(!success) {
-            return res.status(404).json({ error: message });
-        }
-
         return res.status(200);
     }
 
        async adotaPet(req:Request<TipoRequestParamsBodyPet, {},TipoRequestBodyPet >, res:Response<TipoResponseBodyPet>) {
             const { pet_id, adotante_id} = req.params;
 
-            const { success, message} = await this.repository.adotaPet(
+            await this.repository.adotaPet(
                 Number(pet_id),
                 Number(adotante_id)
             );
-
-            if(!success) {
-                return res.status(404).json({ error: message });
-            }
 
             return res.sendStatus(204);
         }

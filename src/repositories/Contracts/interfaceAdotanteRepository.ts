@@ -5,7 +5,7 @@ import EnderecoEntity from "../../entities/EnderecoEntity";
 export default interface InterfacePetRepository {
     criaAdotante (adotante: AdontanteEntity): void | Promise<void>;
     listaAdotantes(): Promise<AdontanteEntity[]>;
-    atualizaAdotante(id: number, newData: AdotanteEntity): Promise<{ success: boolean; message?: string }>;
+    atualizaAdotante(id: number, newData: AdotanteEntity): void;
     deletaAdotante(id: number): Promise<{ success: boolean; message?: string}>;
-    atualizaEnderecoAdotante(idAdotante: number, endereco: EnderecoEntity): Promise<{ success: boolean; message?: string }> | void;
+    atualizaEnderecoAdotante(idAdotante: number, endereco: EnderecoEntity):void;
 }

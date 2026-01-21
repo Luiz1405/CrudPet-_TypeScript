@@ -1,5 +1,6 @@
 import CriaAdotanteDTO from "../DTO/CriaAbrigoDTO";
 import AbrigoEntity from "../entities/AbrigoEntity";
+import EnderecoEntity from "../entities/EnderecoEntity";
 import AbrigoRepository from "../repositories/AbrigoRepository";
 
 export default class AbrigoService {
@@ -36,5 +37,9 @@ export default class AbrigoService {
         const resultado = await this.abrigoRepository.deletaAbrigo(idAbrigo);
 
         return resultado;
+    }
+
+    async atualizaEnderecoAbrigo(idAbrigo: number, endereco: EnderecoEntity): Promise<void> {
+        await this.abrigoRepository.atualizaEnderecoAbrigo(idAbrigo,endereco);
     }
 }
