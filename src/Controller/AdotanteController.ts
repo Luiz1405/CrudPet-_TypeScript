@@ -3,13 +3,18 @@ import AdontanteEntity from "../entities/AdotanteEntity";
 import AdotanteRepository from "../repositories/AdotanteRepository";
 import AdotanteEntity from "../entities/AdotanteEntity";
 import EnderecoEntity from "../entities/EnderecoEntity";
+import { TipoRequestParamsBodyAdotante, TipoRequestBodyAdotante, TipoResponseBodyAdotante } from "../Tipos/tiposAdotante";
+
 
 export default class AdotanteController {
     constructor(private repository: AdotanteRepository) {}
 
-    async criaAdotante(req: Request, res: Response) {
+    async criaAdotante(
+        req: Request<TipoRequestParamsBodyAdotante, {}, TipoRequestBodyAdotante>, 
+        res: Response<TipoResponseBodyAdotante>
+    ) {
         const { nome, celular, endereco, foto, senha } = <AdontanteEntity>req.body;
-
+        
         const novoAdotante = new AdontanteEntity(
             nome,
             senha,
@@ -19,16 +24,30 @@ export default class AdotanteController {
         );
 
         await this.repository.criaAdotante(novoAdotante);
-        return res.status(201).json(novoAdotante);
+        return res.status(201).json({data:{ id:novoAdotante.id, nome,celular, endereco}});
     }
 
-    async listaAdotante(req:Request, res: Response) {
-        const adotantes = await this.repository.listaAdotantes();
+    async listaAdotante(
+        req: Request<TipoRequestParamsBodyAdotante, {}, TipoRequestBodyAdotante>, 
+        res: Response<TipoResponseBodyAdotante>
+    ) {
+        const listaDeAdotantes = await this.repository.listaAdotantes();
+        const data = listaDeAdotantes.map((adotante)=>{
+            return {
+                id: adotante.id,
+                nome:adotante.nome,
+                celular:adotante.celular,
+                endereco:adotante.endereco!==null ? adotante.endereco:undefined
+            }
+        })
 
-        return res.status(201).json(adotantes);
+        return res.status(201).json({data: data});
     }
 
-    async atualizaAdotante(req: Request, res:Response) {
+    async atualizaAdotante(
+        req: Request<TipoRequestParamsBodyAdotante, {}, TipoRequestBodyAdotante>, 
+        res: Response<TipoResponseBodyAdotante>
+    ) {
         const { id } = req.params;
         const { success, message} = await this.repository.atualizaAdotante(
             Number(id),
@@ -36,13 +55,16 @@ export default class AdotanteController {
         );
 
         if(!success) {
-            return res.status(404).json({ message });
+            return res.status(404).json({ error: message });
         }
 
-        return res.status(201).json({ message });
+        return res.status(201);
     }
 
-    async deletaAdotante(req: Request, res:Response) {
+    async deletaAdotante(
+        req: Request<TipoRequestParamsBodyAdotante, {}, TipoRequestBodyAdotante>, 
+        res: Response<TipoResponseBodyAdotante>
+    ) {
         const { id } = req.params;
 
         const { success, message } = await this.repository.deletaAdotante(
@@ -50,24 +72,27 @@ export default class AdotanteController {
         );
 
         if(!success) {
-            return res.status(404).json({ message })
+            return res.status(404).json({ error: message });
         }
 
-        return res.status(200).json( { message })
+        return res.status(200);
     }
 
-       async atualizaEnderecoAdotante(req: Request, res:Response) {
+       async atualizaEnderecoAdotante(
+        req: Request<TipoRequestParamsBodyAdotante, {}, EnderecoEntity>, 
+        res: Response<TipoResponseBodyAdotante>
+    ) {
             const { id } = req.params;
     
             const { success, message } = await this.repository.atualizaEnderecoAdotante(
                 Number(id),
-                req.body as EnderecoEntity
+                req.body
             );
     
             if(!success) {
-                return res.status(404).json({ message })
+                return res.status(404).json({ error: message });
             }
     
-            return res.status(200).json( { message })
+            return res.status(200);
         }
 }
