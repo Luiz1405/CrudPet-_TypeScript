@@ -12,14 +12,6 @@ export default class PetController {
     async criaPet(req:Request<TipoRequestParamsBodyPet, {}, TipoRequestBodyPet>, res:Response<TipoResponseBodyPet>){
         const {adotado, especie, dataDeNascimento, nome, porte} = <PetEntity>req.body;
 
-        if(!Object.values(EnumEspecie).includes(especie)) {
-            return res.status(400).json({error: "Especie inválida"});
-        }
-
-        if(porte && !(porte in EnumPorte)) {
-            return res.status(400).json({error: "Especie inválida"});
-        }
-
         const novoPet = new PetEntity(
         nome,
         especie,

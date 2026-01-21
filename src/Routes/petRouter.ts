@@ -1,7 +1,8 @@
-import express from "express";
+import express, { RequestHandler } from "express";
 import PetController from "../Controller/PetController";
 import PetRepository from "../repositories/PetRepository";
 import { appDataSource } from "../config/dataSource";
+import { middlewareValidadorBodyPet } from "../middleware/validadores/petRequestBody copy";
 
 const router = express.Router();
 
@@ -10,9 +11,11 @@ const petRepository = new PetRepository(
     appDataSource.getRepository("AdotanteEntity")
 );
 
+const validateBodyEndereco:RequestHandler = (req,res,next) => middlewareValidadorBodyPet(req,res,next);
+
 const petController = new PetController(petRepository);
 
-router.post("/",(req, res) =>  petController.criaPet(req, res));
+router.post("/", validateBodyEndereco ,(req, res) =>  petController.criaPet(req, res));
 
 router.get("/",(req, res) =>  petController.listaPet(req, res));
 
